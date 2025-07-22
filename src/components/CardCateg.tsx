@@ -1,5 +1,5 @@
 import * as motion from "motion/react-client";
-export default function Card({ product }: any) {
+export default function Card({ category }: any) {
   return (
     <motion.div
       className="card bg-base-300 w-96 shadow-sm cursor-pointer"
@@ -9,18 +9,17 @@ export default function Card({ product }: any) {
     >
       <figure>
         <img
-          src={product.images}
-          alt={product.title}
+          src={category.image}
+          alt={category.title}
           className="h-60 object-cover w-full"
         />
       </figure>
       <div className="card-body">
-        <h2 className="card-title">{product.title}</h2>
-        <p className="line-clamp-2 text-sm">{product.description}</p>
-        <p className="font-bold text-blue-600">{product.price} €</p>
+        <h2 className="card-title">{category.name}</h2>
+        <p className="line-clamp-2 text-sm">{category.name}</p>
         <div className="card-actions justify-end">
           <button className="btn border-0 bg-gradient-to-r from-blue-600 to-cyan-500 text-white hover:from-blue-700 hover:to-cyan-600 text-lg p-4">
-            Ajouter au panier
+            Voir plus
           </button>
         </div>
       </div>

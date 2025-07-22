@@ -9,7 +9,7 @@ export default function NavBar() {
             to="/"
             className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-500 text-4xl"
           >
-            E-commerce
+            D&J
           </Link>
         </div>
 
@@ -53,14 +53,14 @@ export default function NavBar() {
 
         <div>
           {/* Cart Dropdown */}
-          <div className="dropdown dropdown-end">
+          {/* <div className="dropdown dropdown-end">
             <div
               tabIndex={0}
               role="button"
               className="btn btn-ghost btn-circle"
             >
               <div className="indicator">
-                {/* TODO : A voir pour jouter une icone panier au lieu du svg */}
+               
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   className="h-5 w-5"
@@ -92,7 +92,7 @@ export default function NavBar() {
                 </div>
               </div>
             </div>
-          </div>
+          </div> */}
 
           {/* Profile Dropdown */}
           <div className="dropdown dropdown-end">
@@ -101,10 +101,10 @@ export default function NavBar() {
               role="button"
               className="btn btn-ghost btn-circle avatar"
             >
-              <div className="w-10 rounded-full">
+              <div className="w-8 rounded">
                 <img
                   alt="Profile"
-                  src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp"
+                  src="https://cdn-icons-png.flaticon.com/512/847/847969.png"
                 />
               </div>
             </div>
