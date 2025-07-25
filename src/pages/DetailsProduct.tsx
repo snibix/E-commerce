@@ -1,5 +1,7 @@
+import { ArrowLeftIcon } from "@heroicons/react/24/solid";
+import * as motion from "motion/react-client";
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 
 interface Product {
   id: number;
@@ -45,22 +47,33 @@ export default function DetailsProduct() {
   }
 
   return (
-    <article className="flex w-250 mx-auto justify-between mt-15 gap-10 h-156">
-      <div className="w-[50%]">
-        <img src={prod.images} alt="images du prod" className="rounded-lg" />
+    <motion.article
+      initial={{ opacity: 0, y: 30 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.7, ease: "easeOut" }}
+    >
+      <div className="w-250 mx-auto flex items-end h-15">
+        <Link to="/products" className="py-5">
+          <ArrowLeftIcon className="w-8 h-8" />
+        </Link>
       </div>
-      <div className="flex flex-col gap-5 w-[50%]">
-        <h2 className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-500 text-4xl">
-          {prod.title}
-        </h2>
-        <span className="text-4xl">{prod.price} €</span>
-        <p className="text-md">{prod.description}</p>
-        <div>
-          <button className="btn border-0 bg-gradient-to-r from-blue-600 to-cyan-500 text-white hover:from-blue-700 hover:to-cyan-600 text-xl">
-            Ajoutez au panier
-          </button>
+      <div className="flex w-250 mx-auto justify-between gap-10 h-156">
+        <div className="w-[50%]">
+          <img src={prod.images} alt="images du prod" className="rounded-lg" />
+        </div>
+        <div className="flex flex-col gap-5 w-[50%]">
+          <h2 className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-500 text-4xl">
+            {prod.title}
+          </h2>
+          <span className="text-4xl">{prod.price} €</span>
+          <p className="text-md">{prod.description}</p>
+          <div>
+            <button className="btn border-0 bg-gradient-to-r from-blue-600 to-cyan-500 text-white hover:from-blue-700 hover:to-cyan-600 text-xl">
+              Ajoutez au panier
+            </button>
+          </div>
         </div>
       </div>
-    </article>
+    </motion.article>
   );
 }

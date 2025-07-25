@@ -15,7 +15,7 @@ export default function Category() {
         setCateg(data);
         setTimeout(() => {
           setLoading(false);
-        }, 500);
+        }, 100);
       })
       .catch((e) => console.error(e));
   }, []);
