@@ -1,8 +1,11 @@
 import { useEffect, useState } from "react";
 import CardCateg from "../components/CardCateg";
 
+interface Category {
+  id: number;
+}
 export default function Category() {
-  const [categ, setCateg] = useState([]);
+  const [categ, setCateg] = useState<Category[]>([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -10,15 +13,20 @@ export default function Category() {
       .then((res) => res.json())
       .then((data) => {
         setCateg(data);
-        setLoading(false);
+        setTimeout(() => {
+          setLoading(false);
+        }, 500);
       })
       .catch((e) => console.error(e));
   }, []);
 
   if (loading) {
     return (
-      <div className="flex justify-center p-10">
-        <span className="loading loading-spinner loading-xl"></span>
+      <div className="flex justify-center items-center p-10 h-170">
+        <span
+          className="loading loading-spinner loading-xl"
+          style={{ width: "3rem", height: "3rem" }}
+        ></span>
       </div>
     );
   }

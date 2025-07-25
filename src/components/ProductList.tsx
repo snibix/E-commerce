@@ -1,8 +1,13 @@
 import { useEffect, useState } from "react";
 import Card from "./Card";
 
+interface Product {
+  id: number;
+  title: string;
+  price: number;
+}
 export default function ProductList() {
-  const [products, setProducts] = useState([]);
+  const [products, setProducts] = useState<Product[]>([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -10,7 +15,9 @@ export default function ProductList() {
       .then((res) => res.json())
       .then((data) => {
         setProducts(data);
-        setLoading(false);
+        setTimeout(() => {
+          setLoading(false);
+        }, 500);
       })
       .catch((e) => {
         console.error(e);
@@ -20,8 +27,11 @@ export default function ProductList() {
 
   if (loading) {
     return (
-      <div className="flex justify-center p-10">
-        <span className="loading loading-spinner loading-xl"></span>
+      <div className="flex justify-center items-center p-10 h-150">
+        <span
+          className="loading loading-spinner loading-xl"
+          style={{ width: "3rem", height: "3rem" }}
+        ></span>
       </div>
     );
   }

@@ -32,11 +32,11 @@ export default function NavBar() {
                   Catégories
                 </Link>
               </li>
-              <li>
+              {/* <li>
                 <Link to="/offers" className="hover:text-blue-600">
                   Promotions
                 </Link>
-              </li>
+              </li> */}
               <li>
                 <Link to="/about" className="hover:text-blue-600">
                   À propos

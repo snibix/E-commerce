@@ -1,6 +1,13 @@
+import * as motion from "motion/react-client";
+
 export default function Login() {
   return (
-    <div className="flex flex-col justify-center items-center gap-5">
+    <motion.div
+      className="flex flex-col justify-center items-center gap-5"
+      initial={{ opacity: 0, y: 30 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.7, ease: "easeOut" }}
+    >
       <h2 className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-500 text-4xl py-5 mt-5">
         Se Connecter
       </h2>
@@ -21,6 +28,6 @@ export default function Login() {
           <button className="btn btn-neutral mt-4">Login</button>
         </fieldset>
       </div>
-    </div>
+    </motion.div>
   );
 }
