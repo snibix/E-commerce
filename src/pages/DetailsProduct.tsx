@@ -16,7 +16,6 @@ interface Product {
     slug: string;
   };
 }
-// TODO : Ajouter la categ plus tard
 
 export default function DetailsProduct() {
   const [prod, setProdruct] = useState<Product | null>(null);
@@ -30,7 +29,7 @@ export default function DetailsProduct() {
         setProdruct(data);
         setTimeout(() => {
           setLoading(false);
-        }, 500);
+        }, 100);
       })
       .catch();
   }, [id]);
@@ -54,7 +53,7 @@ export default function DetailsProduct() {
     >
       <div className="w-250 mx-auto flex items-end h-15">
         <Link to="/products" className="py-5">
-          <ArrowLeftIcon className="w-8 h-8" />
+          <ArrowLeftIcon className="w-7 h-7" />
         </Link>
       </div>
       <div className="flex w-250 mx-auto justify-between gap-10 h-156">
