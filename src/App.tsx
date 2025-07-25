@@ -3,12 +3,12 @@ import "./App.css";
 import Footer from "./components/Footer";
 import Header from "./components/Header";
 import About from "./pages/About";
+import Cart from "./pages/Cart";
 import Category from "./pages/Category";
 import Contact from "./pages/Contact";
 import DetailsProduct from "./pages/DetailsProduct";
 import Home from "./pages/Home";
 import Login from "./pages/Login";
-import Promo from "./pages/Offers";
 import Product from "./pages/Product";
 import ProductListByCategory from "./pages/ProductListByCategory";
 import SignUp from "./pages/SignUp";
@@ -25,7 +25,7 @@ function App() {
           path="/categories/:id"
           element={<ProductListByCategory />}
         ></Route>
-        <Route path="/offers" element={<Promo />}></Route>
+        <Route path="/cart" element={<Cart />}></Route>
         <Route path="/about" element={<About />}></Route>
         <Route path="/contact" element={<Contact />}></Route>
         <Route path="/login" element={<Login />}></Route>
