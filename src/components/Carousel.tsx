@@ -14,17 +14,6 @@ const slides = [
   {
     id: 2,
     image:
-      "https://images.unsplash.com/photo-1472851294608-062f824d29cc?auto=format&fit=crop&w=1200&h=500",
-    title: "Offre Spéciale -50%",
-    subtitle: "Promotion exceptionnelle",
-    description:
-      "Profitez de réductions incroyables sur une sélection d'articles",
-    buttonText: "Voir les Offres",
-    buttonAction: "promotions",
-  },
-  {
-    id: 3,
-    image:
       "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=1200&h=500",
     title: "Livraison Gratuite",
     subtitle: "Partout en France",
@@ -33,7 +22,7 @@ const slides = [
     buttonAction: "boutique",
   },
   {
-    id: 4,
+    id: 3,
     image:
       "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=1200&h=500",
     title: "Qualité Premium",

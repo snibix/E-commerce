@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 export default function Footer() {
   return (
     <footer className="footer sm:footer-horizontal bg-base-300 text-base-content p-10">
@@ -15,10 +17,12 @@ export default function Footer() {
           <h6 className="footer-title text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-500 text-lg">
             Company
           </h6>
-          <a className="link link-hover">About us</a>
-          <a className="link link-hover">Contact</a>
-          <a className="link link-hover">Jobs</a>
-          <a className="link link-hover">Press kit</a>
+          <Link to="/about">
+            <a className="link link-hover"> À propos</a>
+          </Link>
+          <Link to="/contact">
+            <a className="link link-hover">Contact</a>
+          </Link>
         </nav>
         <nav className="flex flex-col">
           <h6 className="footer-title text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-500 text-lg text-center">

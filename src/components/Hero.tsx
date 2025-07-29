@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 const Hero = () => {
   return (
     <div className="hero bg-base-200 min-h-150 mt-10">
@@ -15,7 +17,7 @@ const Hero = () => {
             livraison gratuite dès 50€ d'achat.
           </p>
           <button className="btn border-0 bg-gradient-to-r from-blue-600 to-cyan-500 text-white hover:from-blue-700 hover:to-cyan-600 text-xl">
-            Découvrir
+            <Link to="/products">Découvrir</Link>
           </button>
         </div>
       </div>
