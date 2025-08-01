@@ -1,4 +1,4 @@
-import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 import "./App.css";
 import Footer from "./components/Footer";
 import Header from "./components/Header";
@@ -12,9 +12,10 @@ import Login from "./pages/Login";
 import Product from "./pages/Product";
 import ProductListByCategory from "./pages/ProductListByCategory";
 import SignUp from "./pages/SignUp";
+
 function App() {
   return (
-    <Router>
+    <>
       <Header />
       <Routes>
         <Route path="/" element={<Home />}></Route>
@@ -32,7 +33,7 @@ function App() {
         <Route path="/signup" element={<SignUp />}></Route>
       </Routes>
       <Footer />
-    </Router>
+    </>
   );
 }
 

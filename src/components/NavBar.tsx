@@ -1,7 +1,10 @@
 import { Link } from "react-router-dom";
+import { useAuth } from "../context/AuthContext";
 import ViewCart from "./ViewCart";
 
 export default function NavBar() {
+  const { isAuthenticated, logout } = useAuth();
+
   return (
     <div className="navbar bg-base-200 shadow-sm flex flex-col h-15 justify-center">
       <div className="flex w-[1200px] mx-auto justify-between items-center">
@@ -51,69 +54,59 @@ export default function NavBar() {
         <div className="flex gap-5">
           {/* Cart Dropdown */}
           <ViewCart />
-
-          {/* Profile Dropdown */}
           <div className="dropdown dropdown-end">
-            <div
-              tabIndex={0}
-              role="button"
-              className="btn btn-ghost btn-circle avatar"
-            >
-              <div className="w-8 rounded">
-                <img
-                  alt="Profile"
-                  src="https://cdn-icons-png.flaticon.com/512/847/847969.png"
-                />
-              </div>
-            </div>
-            <ul
-              tabIndex={0}
-              className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow"
-            >
-              <li>
-                <Link to="/login" className="justify-between">
-                  Login
-                </Link>
-              </li>
-              <li>
-                <Link to="/signup">Inscription</Link>
-              </li>
-            </ul>
-            {/* <div
-              tabIndex={0}
-              role="button"
-              className="btn btn-ghost btn-circle avatar"
-            >
-              <div className="w-10 rounded-full">
-                <img
-                  alt="Profile"
-                  src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp"
-                />
-              </div>
-            </div>
-            <ul
-              tabIndex={0}
-              className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow"
-            >
-              <li>
-                <Link to="/profile" className="justify-between">
-                  Profile
-                  <span className="badge">New</span>
-                </Link>
-              </li>
-              <li>
-                <Link to="/orders">Mes commandes</Link>
-              </li>
-              <li>
-                <Link to="/wishlist">Liste de souhaits</Link>
-              </li>
-              <li>
-                <Link to="/settings">Paramètres</Link>
-              </li>
-              <li>
-                <button>Déconnexion</button>
-              </li>
-            </ul> */}
+            {isAuthenticated ? (
+              <>
+                <div
+                  tabIndex={0}
+                  role="button"
+                  className="btn btn-ghost btn-circle avatar"
+                >
+                  <div className="w-10 rounded-full">
+                    <img
+                      alt="Profile"
+                      src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp"
+                    />
+                  </div>
+                </div>
+                <ul
+                  tabIndex={0}
+                  className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-50 p-2 shadow"
+                >
+                  <li>
+                    <button onClick={logout}>Déconnexion</button>
+                  </li>
+                </ul>
+              </>
+            ) : (
+              <>
+                <div
+                  tabIndex={0}
+                  role="button"
+                  className="btn btn-ghost btn-circle avatar"
+                >
+                  <div className="w-8 rounded">
+                    <img
+                      alt="Profile"
+                      src="https://cdn-icons-png.flaticon.com/512/847/847969.png"
+                    />
+                  </div>
+                </div>
+                <ul
+                  tabIndex={0}
+                  className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow"
+                >
+                  <li>
+                    <Link to="/login" className="justify-between">
+                      Login
+                    </Link>
+                  </li>
+                  <li>
+                    <Link to="/signup">Inscription</Link>
+                  </li>
+                </ul>
+              </>
+            )}
           </div>
         </div>
       </div>

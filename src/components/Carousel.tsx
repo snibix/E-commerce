@@ -70,7 +70,7 @@ export default function TextCarousel() {
 
           {/* Text content */}
           <div className="absolute inset-0 flex items-center justify-start pl-8 md:pl-16">
-            <div className="text-white max-w-xl">
+            <div className="text-white max-w-xl ms-5">
               <h2 className="text-4xl md:text-6xl font-bold mb-4 animate-fade-in">
                 {slides[current].title}
               </h2>

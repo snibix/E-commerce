@@ -11,14 +11,16 @@ export default function () {
       </div>
       <div
         tabIndex={0}
-        className="card card-compact dropdown-content bg-base-100 z-1 w-52 shadow"
+        className="card card-compact dropdown-content bg-base-100 z-1 w-50 shadow"
       >
-        <div className="card-body">
+        <div className="card-body text-center">
           <span className="text-lg font-bold">8 Items</span>
-          <span className="text-info">Subtotal: $999</span>
-          <div className="card-actions">
-            <Link to="/cart" className="btn btn-primary btn-block">
-              View cart
+          <span className="text-info">Subtotal: $899</span>
+          <div className="card-actions flex justify-center">
+            <Link to="/cart">
+              <button className="btn border-0 bg-gradient-to-r from-blue-600 to-cyan-500 text-white hover:from-blue-700 hover:to-cyan-600 text-xl">
+                View cart
+              </button>
             </Link>
           </div>
         </div>

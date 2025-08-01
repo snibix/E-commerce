@@ -17,12 +17,8 @@ export default function Footer() {
           <h6 className="footer-title text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-500 text-lg">
             Company
           </h6>
-          <Link to="/about">
-            <a className="link link-hover"> À propos</a>
-          </Link>
-          <Link to="/contact">
-            <a className="link link-hover">Contact</a>
-          </Link>
+          <Link to="/about">À propos</Link>
+          <Link to="/contact">Contact</Link>
         </nav>
         <nav className="flex flex-col">
           <h6 className="footer-title text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-500 text-lg text-center">
