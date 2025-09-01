@@ -52,8 +52,9 @@ export default function NavBar() {
         </div>
 
         <div className="flex gap-5">
-          {/* Cart Dropdown */}
+          {/* Cart Dropdown - Composant mis à jour */}
           <ViewCart />
+
           <div className="dropdown dropdown-end">
             {isAuthenticated ? (
               <>
@@ -71,7 +72,7 @@ export default function NavBar() {
                 </div>
                 <ul
                   tabIndex={0}
-                  className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-50 p-2 shadow"
+                  className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-50 p-2 shadow"
                 >
                   <li>
                     <button onClick={logout}>Déconnexion</button>
@@ -94,7 +95,7 @@ export default function NavBar() {
                 </div>
                 <ul
                   tabIndex={0}
-                  className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow"
+                  className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow"
                 >
                   <li>
                     <Link to="/login" className="justify-between">

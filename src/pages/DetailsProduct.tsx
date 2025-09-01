@@ -2,6 +2,7 @@ import { ArrowLeftIcon } from "@heroicons/react/24/solid";
 import * as motion from "motion/react-client";
 import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
+import { useCart } from "../context/CartContext"; // Ajustez le chemin selon votre structure
 
 interface Product {
   id: number;
@@ -22,6 +23,9 @@ export default function DetailsProduct() {
   const [loading, setLoading] = useState(true);
   const { id } = useParams();
 
+  // Intégration du panier
+  const { addToCart } = useCart();
+
   useEffect(() => {
     fetch(`https://api.escuelajs.co/api/v1/products/${id}`)
       .then((res) => res.json())
@@ -33,6 +37,17 @@ export default function DetailsProduct() {
       })
       .catch();
   }, [id]);
+
+  const handleAddToCart = () => {
+    if (prod) {
+      addToCart({
+        id: prod.id.toString(), // Conversion en string pour la cohérence
+        name: prod.title,
+        price: prod.price,
+        image: prod.images,
+      });
+    }
+  };
 
   if (loading || !prod) {
     return (
@@ -67,8 +82,11 @@ export default function DetailsProduct() {
           <span className="text-4xl">{prod.price} €</span>
           <p className="text-md">{prod.description}</p>
           <div>
-            <button className="btn border-0 bg-gradient-to-r from-blue-600 to-cyan-500 text-white hover:from-blue-700 hover:to-cyan-600 text-xl">
-              Ajoutez au panier
+            <button
+              onClick={handleAddToCart}
+              className="btn border-0 text-white text-xl transition-all duration-300 bg-gradient-to-r from-blue-600 to-cyan-500 hover:from-blue-700 hover:to-cyan-600"
+            >
+              Ajouter au panier
             </button>
           </div>
         </div>

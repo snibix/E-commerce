@@ -2,6 +2,7 @@ import { Route, Routes } from "react-router-dom";
 import "./App.css";
 import Footer from "./components/Footer";
 import Header from "./components/Header";
+import { CartProvider } from "./context/CartContext";
 import About from "./pages/About";
 import Cart from "./pages/Cart";
 import Category from "./pages/Category";
@@ -15,7 +16,7 @@ import SignUp from "./pages/SignUp";
 
 function App() {
   return (
-    <>
+    <CartProvider>
       <Header />
       <Routes>
         <Route path="/" element={<Home />}></Route>
@@ -33,7 +34,7 @@ function App() {
         <Route path="/signup" element={<SignUp />}></Route>
       </Routes>
       <Footer />
-    </>
+    </CartProvider>
   );
 }
 
