@@ -4,6 +4,9 @@ Un projet d’**application e-commerce** moderne construit avec **React**, **Typ
 
 Ce projet intègre un système d’**authentification** et de **panier** géré via le **Context API** de React, afin de pratiquer la gestion d’état global et les bonnes pratiques de développement front-end.
 
+Login :
+email : john@mail.com
+mdp : changeme
 ---
 
 ## 🚀 Fonctionnalités
