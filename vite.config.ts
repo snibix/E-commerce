@@ -4,4 +4,5 @@ import { defineConfig } from "vite";
 
 export default defineConfig({
   plugins: [tailwindcss(), react()],
+  base: "/E-commerce/",
 });
