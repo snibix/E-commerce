@@ -5,7 +5,7 @@ import { useCart } from "../context/CartContext"; // Ajustez le chemin selon vot
 
 // Type pour le produit (adaptez selon votre structure de données)
 interface Product {
-  id: string;
+  id: number;
   title: string;
   description: string;
   price: number;
@@ -13,7 +13,7 @@ interface Product {
 }
 
 interface CardProps {
-  product: Product;
+  readonly product: Product;
 }
 
 export default function Card({ product }: CardProps) {

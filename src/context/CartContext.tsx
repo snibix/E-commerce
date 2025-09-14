@@ -1,8 +1,8 @@
 import type { ReactNode } from "react";
-import React, { createContext, useContext, useReducer } from "react";
+import React, { createContext, useContext, useMemo, useReducer } from "react";
 // Types pour les produits du panier
 interface CartItem {
-  id: string;
+  id: number;
   name: string;
   price: number;
   quantity: number;
@@ -19,8 +19,8 @@ interface CartState {
 // Types pour les actions
 type CartAction =
   | { type: "ADD_TO_CART"; payload: Omit<CartItem, "quantity"> }
-  | { type: "REMOVE_FROM_CART"; payload: { id: string } }
-  | { type: "UPDATE_QUANTITY"; payload: { id: string; quantity: number } }
+  | { type: "REMOVE_FROM_CART"; payload: { id: number } }
+  | { type: "UPDATE_QUANTITY"; payload: { id: number; quantity: number } }
   | { type: "CLEAR_CART" };
 
 // Type pour le contexte
@@ -28,8 +28,8 @@ interface CartContextType {
   cart: CartState;
   dispatch: React.Dispatch<CartAction>;
   addToCart: (product: Omit<CartItem, "quantity">) => void;
-  removeFromCart: (id: string) => void;
-  updateQuantity: (id: string, quantity: number) => void;
+  removeFromCart: (id: number) => void;
+  updateQuantity: (id: number, quantity: number) => void;
   clearCart: () => void;
 }
 
@@ -144,11 +144,11 @@ export const CartProvider: React.FC<CartProviderProps> = ({ children }) => {
     dispatch({ type: "ADD_TO_CART", payload: product });
   };
 
-  const removeFromCart = (id: string) => {
+  const removeFromCart = (id: number) => {
     dispatch({ type: "REMOVE_FROM_CART", payload: { id } });
   };
 
-  const updateQuantity = (id: string, quantity: number) => {
+  const updateQuantity = (id: number, quantity: number) => {
     dispatch({ type: "UPDATE_QUANTITY", payload: { id, quantity } });
   };
 
@@ -156,14 +156,17 @@ export const CartProvider: React.FC<CartProviderProps> = ({ children }) => {
     dispatch({ type: "CLEAR_CART" });
   };
 
-  const value: CartContextType = {
-    cart,
-    dispatch,
-    addToCart,
-    removeFromCart,
-    updateQuantity,
-    clearCart,
-  };
+  const value: CartContextType = useMemo(
+    () => ({
+      cart,
+      dispatch,
+      addToCart,
+      removeFromCart,
+      updateQuantity,
+      clearCart,
+    }),
+    [cart]
+  );
 
   return <CartContext.Provider value={value}>{children}</CartContext.Provider>;
 };

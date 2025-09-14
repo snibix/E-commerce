@@ -8,6 +8,10 @@ interface Product {
     id: number;
     name: string;
   };
+  title: string;
+  description: string;
+  price: number;
+  images: string;
 }
 
 export default function ProductListByCategory() {
@@ -20,6 +24,7 @@ export default function ProductListByCategory() {
       .then((res) => res.json())
       .then((data) => {
         setProduct(data);
+        console.log(data);
         setTimeout(() => {
           setLoading(false);
         });
