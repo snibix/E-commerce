@@ -5,10 +5,10 @@ import { useCart } from "../context/CartContext";
 
 export default function ShoppingCart() {
   const { cart, updateQuantity, removeFromCart, clearCart } = useCart();
-  const [selectedItems, setSelectedItems] = useState<string[]>([]);
+  const [selectedItems, setSelectedItems] = useState<number[]>([]);
 
   // Gérer la sélection d'un item
-  const handleItemSelect = (itemId: string) => {
+  const handleItemSelect = (itemId: number) => {
     setSelectedItems((prev) =>
       prev.includes(itemId)
         ? prev.filter((id) => id !== itemId)
@@ -27,7 +27,7 @@ export default function ShoppingCart() {
 
   // Gérer le changement de quantité
   const handleQuantityChange = (
-    itemId: string,
+    itemId: number,
     e: ChangeEvent<HTMLInputElement>
   ) => {
     const newQuantity = parseInt(e.target.value);

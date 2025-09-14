@@ -5,7 +5,7 @@ import { useCart } from "../context/CartContext"; // Ajustez le chemin
 export default function ViewCart() {
   const { cart, updateQuantity, removeFromCart } = useCart();
 
-  const handleQuantityChange = (id: string, newQuantity: number) => {
+  const handleQuantityChange = (id: number, newQuantity: number) => {
     if (newQuantity <= 0) {
       removeFromCart(id);
     } else {
@@ -13,7 +13,7 @@ export default function ViewCart() {
     }
   };
 
-  const handleRemoveItem = (e: MouseEvent<HTMLButtonElement>, id: string) => {
+  const handleRemoveItem = (e: MouseEvent<HTMLButtonElement>, id: number) => {
     e.preventDefault();
     removeFromCart(id);
   };
