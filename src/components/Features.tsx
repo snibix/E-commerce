@@ -2,7 +2,7 @@ const features = [
   {
     icon: (
       <svg
-        className="w-12 h-12 text-gray-600"
+        className="w-12 h-12 text-gray-600 dark:text-gray-300"
         fill="none"
         stroke="currentColor"
         viewBox="0 0 24 24"
@@ -21,7 +21,7 @@ const features = [
   {
     icon: (
       <svg
-        className="w-12 h-12 text-gray-600"
+        className="w-12 h-12 text-gray-600 dark:text-gray-300"
         fill="none"
         stroke="currentColor"
         viewBox="0 0 24 24"
@@ -40,7 +40,7 @@ const features = [
   {
     icon: (
       <svg
-        className="w-12 h-12 text-gray-600"
+        className="w-12 h-12 text-gray-600 dark:text-gray-300"
         fill="none"
         stroke="currentColor"
         viewBox="0 0 24 24"
@@ -59,7 +59,7 @@ const features = [
   {
     icon: (
       <svg
-        className="w-12 h-12 text-gray-600"
+        className="w-12 h-12 text-gray-600 dark:text-gray-300"
         fill="none"
         stroke="currentColor"
         viewBox="0 0 24 24"
@@ -76,6 +76,7 @@ const features = [
     description: "Nous mettons à jour notre collection chaque jour",
   },
 ];
+
 export default function Features() {
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 w-full">
@@ -84,12 +85,12 @@ export default function Features() {
           key={index}
           className="card bg-base-300 shadow-sm hover:shadow-md transition-shadow duration-300"
         >
-          <div className="card-body items-center text-center p-6 text-white">
+          <div className="card-body items-center text-center p-6 text-base-content">
             <div className="mb-4">{feature.icon}</div>
             <h3 className="card-title text-lg font-semibold mb-2">
               {feature.title}
             </h3>
-            <p className="text-white text-sm leading-relaxed">
+            <p className="text-sm leading-relaxed opacity-70">
               {feature.description}
             </p>
           </div>
