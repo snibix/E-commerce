@@ -41,7 +41,7 @@ export default function DetailsProduct() {
   const handleAddToCart = () => {
     if (prod) {
       addToCart({
-        id: prod.id.toString(), // Conversion en string pour la cohérence
+        id: prod.id,
         name: prod.title,
         price: prod.price,
         image: prod.images,
